@@ -11,6 +11,8 @@ let usersRouter= require('./routes/users.route');
 let auth = require('./controllers/auth');
 let Post= require('./models/post.model').Post;
 
+app.use(express.static('public'));
+
 app.set('view engine','ejs');
 app.use(cookieParser());
 
@@ -25,7 +27,7 @@ let imageStorage= multer.diskStorage({
 app.use(multer({storage: imageStorage}).single('imageFile'));
 
 
-app.use(express.static('public'));
+
 app.use('/posts', postsRouter);
 app.use('/callback-requests', callbackRequestsRouter);
 app.use('/emails', emailsRouter);

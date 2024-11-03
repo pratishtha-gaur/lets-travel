@@ -12,7 +12,7 @@ createForm.addEventListener('submit', function(e){
     if(createText.indexOf('.')== -1){
         createDescription = createText;
     }else{
-        createDescription= createText.substring(0,createText.indexOf('.')+1)
+        createDescription= createText.substring(0,createText.indexOf('.')+1);
     } 
     let data= new FormData();
     data.append('title', title.value);
@@ -33,7 +33,7 @@ function disableInput(input1, input2){
         input2.disabled = true;
     }
     else{
-        input2.disabled = false
+        input2.disabled = false;
     }
 }
 
