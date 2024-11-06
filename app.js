@@ -16,7 +16,7 @@ app.use(express.static('public'));
 app.set('view engine','ejs');
 app.use(cookieParser());
 
-mongoose.connect('mongodb://localhost/travels', {useNewUrlParser: true, useUnifiedTopology : true});
+mongoose.connect('mongodb://localhost/travels');
 
 app.use(express.json());
 let imageStorage= multer.diskStorage({
