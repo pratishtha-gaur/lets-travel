@@ -16,7 +16,7 @@ app.use(express.static('public'));
 app.set('view engine','ejs');
 app.use(cookieParser());
 
-mongoose.connect('mongodb://localhost/travels');
+mongoose.connect('mongodb://localhost/travels', {useNewUrlParser: true, useUnifiedTopology : true});
 
 app.use(express.json());
 let imageStorage= multer.diskStorage({
@@ -62,4 +62,5 @@ app.get('/login', (req,resp)=>{
     }
 })
 
-app.listen(3000, ()=> console.log('listening 3000....'));
+let port= process.env.PORT || 3000;
+app.listen(port , ()=> console.log(`listening ${port}....`));
