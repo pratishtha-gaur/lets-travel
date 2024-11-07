@@ -16,7 +16,9 @@ app.use(express.static('public'));
 app.set('view engine','ejs');
 app.use(cookieParser());
 
-mongoose.connect('mongodb://localhost/travels');
+let username= process.env.mongoUserName;
+let password= process.env.mongoUserPass;
+mongoose.connect(`mongodb+srv://${username}:${password}@mycluster.v8ixs.mongodb.net/travels`);
 
 app.use(express.json());
 let imageStorage= multer.diskStorage({
